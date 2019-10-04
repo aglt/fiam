@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FIAM with Lock screen</string>
+    <string name="textview_text">Welcome to the Firebase In-App Messaging Quickstart app. Press the button to trigger an analytics event!</string>
+    <string name="lockscreen_textview_text">This a lock-screen for the Firebase In-App Messaging app. We do <b>not</b> want to display in app messages on this screen!</string>
+    <string name="warning_fresh_install">You may need to background and then re-foreground the app after a fresh install.</string>
+    <string name="lockscreen_info">Normally you would have PIN/fingerprint unlocking mechanism but this is just to test if In app messaging works with apps that fire up a lock screen when the session expires</string>
+    <string name="trigger_event_button_text">Trigger \'%s\' event</string>
+    <string name="button_open_text">Unclock</string>
+
+    <string name="instance_id_fmt">Device Instance ID: %s</string>
+    <string name="iam_suppressed">Are Firebase In-app-messages suppressed? %s</string>
+</resources>
