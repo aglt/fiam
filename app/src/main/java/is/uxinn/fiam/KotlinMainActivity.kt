@@ -65,7 +65,7 @@ class KotlinMainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         iamSuppressedText.text = getString(
-            R.string.iam_suppressed, if(firebaseIam.areMessagesSuppressed()) "YES" else "NO"
+            R.string.iam_suppressed, if (firebaseIam.areMessagesSuppressed()) "YES" else "NO"
         )
     }
 

@@ -2,11 +2,12 @@ package `is`.uxinn.fiam.manager
 
 import android.os.SystemClock
 import android.util.Log
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import java.util.concurrent.TimeUnit
 
-class AppSessionObserver : DefaultLifecycleObserver {
+class AppSessionObserver : LifecycleObserver {
 
     private lateinit var onRenewedCallback: (Unit) -> Unit
     private lateinit var onExpiredCallback: (Unit) -> Unit
@@ -34,13 +35,13 @@ class AppSessionObserver : DefaultLifecycleObserver {
         return this
     }
 
-    override fun onPause(owner: LifecycleOwner) {
-        super.onPause(owner)
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun onPause() {
         backgroundTimeStamp = SystemClock.elapsedRealtime()
     }
 
-    override fun onStart(owner: LifecycleOwner) {
-        super.onStart(owner)
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun onStart() {
         if (!isSessionAlive()) {
             onExpiredCallback(Unit)
         } else {
