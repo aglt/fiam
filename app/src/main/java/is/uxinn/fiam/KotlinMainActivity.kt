@@ -32,6 +32,7 @@ class KotlinMainActivity : AppCompatActivity() {
                 launchLockScreen()
             }
             .onSessionStart {
+                firebaseAnalytics.logEvent(TRIGGER_APP_UNLOCKED, Bundle())
                 firebaseIam.setMessagesSuppressed(false)
             }
 
@@ -93,6 +94,7 @@ class KotlinMainActivity : AppCompatActivity() {
     companion object {
         const val LOCK_SCREEN_REQUEST: Int = 10
         const val TRIGGER_EVENT = "trigger_event_1"
+        const val TRIGGER_APP_UNLOCKED = "trigger_unlock"
         private const val TAG = "FIAM-Quickstart"
     }
 }
